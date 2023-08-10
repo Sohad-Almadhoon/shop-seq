@@ -1,0 +1,57 @@
+<%- include('includes/head.ejs') %>
+    <style>
+        .tagline {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .order-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            min-height: 65vh;
+        }
+
+        .order {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .order h2 {
+            margin-top: 0;
+        }
+
+        .order p {
+            margin-bottom: 10px;
+        }
+
+        .order strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('includes/nav.ejs') %>
+    <div class="order-list">
+        <% if ( orders.length> 0) { %>
+            <% for (let order of orders) { %>
+                <a href="/products/<%= order.id %>">
+                    <div class="order">
+                        <h2>
+                            <%= order.title %>
+                        </h2>
+                        <p><strong>Price:</strong> $<%= order.price.toFixed(2) %>
+                        </p>
+                    </div>
+                </a>
+                <% } %>
+                    <% } %>
+    </div>
+    <%- include('includes/end.ejs') %>

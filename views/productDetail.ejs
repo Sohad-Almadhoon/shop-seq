@@ -1,0 +1,88 @@
+<%- include('includes/head.ejs') %>
+    <style>
+        .product-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 65vh;
+            background-color: #f0f0f0;
+        }
+
+        .order-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        .order-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .order-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .order-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .action-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .action-link {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .delete-link {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .edit-link {
+            background-color: #2196f3;
+            color: #fff;
+            margin-left: 10px;
+        }
+    </style>
+    </head>
+
+    <body>
+        <%- include('includes/nav.ejs') %>
+            <div class="product-details">
+                <div class="order-card">
+                    <div class="order-title">
+                        <%= order.title %>
+                    </div>
+                    <div class="order-description">
+                        <%= order.description %>
+                    </div>
+                    <div class="order-price">$<%= order.price.toFixed(2) %>
+                    </div>
+                    <div class="action-links">
+                        <form method="">
+
+                        </form>
+                        <a class="action-link delete-link" href="/products/<%= order.id %>/delete">Delete</a>
+                        <a class="action-link edit-link" href="/products/<%= order.id %>/edit">Edit</a>
+                    </div>
+                </div>
+            </div>
+            <%- include('includes/end.ejs') %>
